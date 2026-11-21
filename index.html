@@ -48,6 +48,7 @@ body.ready .app>*:nth-child(2){transition-delay:.06s}
 body.ready .app>*:nth-child(3){transition-delay:.12s}
 body.ready .app>*:nth-child(4){transition-delay:.18s}
 body.ready .app>*:nth-child(5){transition-delay:.24s}
+body.ready .app>*:nth-child(6){transition-delay:.3s}
 
 header{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .brand{display:flex;align-items:center;gap:11px}
@@ -63,22 +64,22 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .icon-btn:active{transform:scale(.94)}
 .icon-btn.off{color:var(--muted)}
 
-.banner{position:relative;overflow:hidden;border-radius:18px;padding:16px 18px;
+.banner{position:relative;overflow:hidden;border-radius:16px;padding:13px 16px;
   background:linear-gradient(150deg,var(--surface2),var(--surface));border:1px solid var(--line);--team:var(--red);
   box-shadow:0 0 0 1px color-mix(in srgb,var(--team) 30%,transparent),0 14px 40px -22px var(--team)}
 .banner[data-team="blue"]{--team:var(--blue)}
 .banner::before{content:"";position:absolute;inset:0;opacity:.18;pointer-events:none;background:radial-gradient(130% 150% at 0% 0%,var(--team),transparent 58%)}
-.lamps{display:flex;gap:8px;margin-bottom:10px;position:relative}
-.lamps i{width:12px;height:12px;border-radius:50%;background:var(--lamp,var(--team));box-shadow:0 0 12px var(--lamp,var(--team)),inset 0 0 3px rgba(255,255,255,.8)}
+.lamps{display:flex;gap:6px;margin-bottom:8px;position:relative}
+.lamps i{width:10px;height:10px;border-radius:50%;background:var(--lamp,var(--team));box-shadow:0 0 10px var(--lamp,var(--team)),inset 0 0 3px rgba(255,255,255,.8)}
 .lamps.flick i{animation:flick .7s var(--ease)}
 .lamps.flick i:nth-child(2){animation-delay:.08s}.lamps.flick i:nth-child(3){animation-delay:.16s}.lamps.flick i:nth-child(4){animation-delay:.24s}
 @keyframes flick{0%,100%{opacity:1}20%{opacity:.15}40%{opacity:1}55%{opacity:.3}70%{opacity:1}}
-.banner-label{font-family:var(--mono);font-size:10px;letter-spacing:.28em;color:var(--muted)}
-.banner-team{font-size:34px;font-weight:800;letter-spacing:.1em;line-height:1.05;margin:2px 0;color:var(--team);text-shadow:0 0 26px color-mix(in srgb,var(--team) 70%,transparent)}
-.banner-count{font-size:13px;color:var(--text);opacity:.9}
-.banner-vs{position:absolute;right:18px;top:16px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);
-  border:1px solid var(--line);border-radius:999px;padding:5px 10px;background:rgba(7,11,22,.5)}
-
+.banner-label{font-family:var(--mono);font-size:9px;letter-spacing:.24em;color:var(--muted)}
+.banner-team{font-size:26px;font-weight:800;letter-spacing:.09em;line-height:1.05;margin:1px 0;color:var(--team);text-shadow:0 0 22px color-mix(in srgb,var(--team) 70%,transparent)}
+.banner-count{font-size:12px;color:var(--text);opacity:.9}
+.banner-vs{position:absolute;right:16px;top:13px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:4px 9px;background:rgba(7,11,22,.5)}
+  
 .stage{display:flex;flex-direction:column;gap:11px}
 .viewport{position:relative;border-radius:18px;transition:box-shadow .3s var(--ease)}
 .viewport.exposed{animation:exposed 2.2s ease-in-out infinite}
@@ -172,6 +173,9 @@ header{display:flex;align-items:center;justify-content:space-between;gap:12px}
 .ctl.danger{color:#fff;background:linear-gradient(150deg,#FF5A6E,var(--red2));border-color:transparent}
 .ctl.on{color:var(--green);border-color:color-mix(in srgb,var(--green) 45%,transparent);box-shadow:0 0 18px -10px var(--green)}
 .ctl.unsupported{opacity:.5}
+.ctl.wide{width:100%;padding:14px;font-size:12.5px;letter-spacing:.09em;color:var(--info);
+  border-color:color-mix(in srgb,var(--info) 38%,transparent);background:linear-gradient(120deg,rgba(56,189,248,.13),var(--surface))}
+.ctl.wide:hover{box-shadow:0 0 26px -12px var(--info)}
 
 footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--muted);padding-top:2px}
 .sess{color:var(--gold)}
@@ -192,9 +196,11 @@ footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:ce
 .dialog p:last-of-type{margin-bottom:20px}
 .dialog p b{color:var(--text)}
 .dialog-actions{display:grid;grid-template-columns:1fr 1.3fr;gap:10px}
-.help-dialog{padding:0;overflow:hidden;display:flex;flex-direction:column}
-.help-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line);
+.help-dialog,.clue-dialog{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.clue-dialog{max-width:620px;max-height:90dvh}
+.help-head,.clue-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--line);
   font-weight:800;letter-spacing:.14em;font-size:13px;color:var(--gold);position:sticky;top:0;background:linear-gradient(160deg,var(--surface2),var(--ink2));z-index:2}
+.clue-head{color:var(--info)}
 .help-body{padding:18px 20px 22px;overflow:auto;display:flex;flex-direction:column;gap:15px}
 .help-item{display:flex;gap:12px}
 .help-n{flex:none;width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-family:var(--mono);font-size:12px;color:var(--gold);
@@ -204,13 +210,41 @@ footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:ce
 .help-item b{color:var(--text)}
 .tag-red{color:#FF7A8A}.tag-blue{color:#7FB6FF}.tag-civ{color:var(--civ)}.tag-kill{color:var(--red)}
 
+.clue-body{padding:18px 20px 22px;overflow:auto;display:flex;flex-direction:column;gap:16px}
+.clue-lead{font-size:13px;color:var(--muted);line-height:1.55}
+.clue-lead b{color:var(--text)}
+.rules4{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.rules4{grid-template-columns:1fr}}
+.r4{border:1px solid var(--line);border-radius:13px;padding:13px 14px;background:linear-gradient(158deg,var(--surface2),var(--surface));position:relative;overflow:hidden}
+.r4::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--red))}
+.r4-n{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--gold);margin-bottom:5px}
+.r4-t{font-weight:800;font-size:13.5px;margin-bottom:5px;line-height:1.25}
+.r4-d{font-size:12.2px;color:var(--muted);line-height:1.5}
+.r4-d b{color:var(--text)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.cols{grid-template-columns:1fr}}
+.col{border-radius:15px;padding:14px;border:1px solid}
+.col.bad{background:rgba(255,59,82,.09);border-color:rgba(255,59,82,.34)}
+.col.good{background:rgba(52,211,153,.09);border-color:rgba(52,211,153,.34)}
+.col-h{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.18em;padding-bottom:9px;margin-bottom:11px;border-bottom:1px solid}
+.col-h svg{width:15px;height:15px}
+.col.bad .col-h{color:#FF7A8A;border-color:rgba(255,59,82,.28)}
+.col.good .col-h{color:var(--green);border-color:rgba(52,211,153,.28)}
+.ex{margin-bottom:12px}
+.ex:last-child{margin-bottom:0}
+.ex-w{font-size:15px;font-weight:800;letter-spacing:.03em;color:var(--text);line-height:1.2}
+.ex-t{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;margin:3px 0 4px}
+.col.bad .ex-t{color:#FF7A8A}.col.good .ex-t{color:var(--green)}
+.ex-y{font-size:11.8px;color:var(--muted);line-height:1.45}
+.ex-y b{color:var(--text)}
+
 .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(16px);z-index:60;
   background:linear-gradient(150deg,var(--surface2),var(--ink2));border:1px solid var(--line);color:var(--text);font-size:12.5px;font-weight:600;
   letter-spacing:.03em;padding:11px 18px;border-radius:999px;box-shadow:0 16px 40px -18px #000;opacity:0;transition:.26s var(--ease);pointer-events:none;max-width:90vw;text-align:center}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 @media (max-width:380px){
-  .banner-team{font-size:29px}
+  .banner-team{font-size:22px}
   .mode{flex-direction:column;align-items:stretch;gap:6px}
   .mode-label{max-width:none;text-align:center}
   .controls{grid-template-columns:1fr 1fr}
@@ -284,6 +318,8 @@ footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:ce
     <button class="ctl" id="help"></button>
   </div>
 
+  <button class="ctl wide" id="clueBtn"></button>
+
   <footer>
     <span class="sess" id="sess">CHAVE #----</span>
     <span class="badge ok" id="savedBadge"></span>
@@ -304,9 +340,24 @@ footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:ce
   <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="exTitle">
     <div class="dialog-stamp warn">ATENÇÃO · SEGREDO EXPOSTO</div>
     <h2 id="exTitle">Manter o mapa sempre visível?</h2>
-    <p>O mapa secreto ficará <b>aberto na tela o tempo todo</b>, sem precisar segurar. Qualquer pessoa que olhar o celular verá as identidades dos 25 agentes.</p>
+    <p>O mapa secreto ficará <b>aberto na tela o tempo todo</b>, sem precisar segurar. Qualquer pessoa que olhar o celular verá as identidades dos 25 quadrados.</p>
     <p>Use apenas quando <b>os agentes de campo não puderem ver a tela</b> — ao estudar a chave antes da partida, ou nas variantes de <b>2 e 3 jogadores</b>, em que só há um espião mestre.</p>
     <div class="dialog-actions"><button class="ctl" id="exNo">CANCELAR</button><button class="ctl danger" id="exYes"></button></div>
+  </div>
+</div>
+
+<div class="scrim" id="clueScrim" hidden>
+  <div class="dialog clue-dialog" role="dialog" aria-modal="true" aria-label="Regra de dicas">
+    <div class="clue-head"><span>REGRA DE DICAS</span><button class="icon-btn" id="clueClose" aria-label="Fechar"></button></div>
+    <div class="clue-body">
+      <p class="clue-lead">Uma palavra, um número — e nada mais. A pista precisa falar do <b>significado</b> das palavras, nunca das letras, do som ou da posição na mesa.</p>
+      <div class="rules4" id="rules4"></div>
+      <div class="cols">
+        <div class="col bad"><div class="col-h" id="colBadH">INVÁLIDAS</div><div id="listBad"></div></div>
+        <div class="col good"><div class="col-h" id="colGoodH">VÁLIDAS</div><div id="listGood"></div></div>
+      </div>
+      <div class="dialog-actions" style="grid-template-columns:1fr"><button class="ctl" id="clueOk">ENTENDI</button></div>
+    </div>
   </div>
 </div>
 
@@ -314,11 +365,11 @@ footer{display:flex;flex-wrap:wrap;align-items:center;gap:8px;justify-content:ce
   <div class="dialog help-dialog" role="dialog" aria-modal="true" aria-label="Como usar">
     <div class="help-head"><span>COMO USAR NA MESA</span><button class="icon-btn" id="helpClose" aria-label="Fechar"></button></div>
     <div class="help-body">
-      <div class="help-item"><div class="help-n">1</div><div><h3>Posicione o celular</h3><p>Entre os <b>dois espiões mestres</b>, com a tela virada para vocês. Os agentes de campo ficam do outro lado da mesa e não devem ver a tela.</p></div></div>
-      <div class="help-item"><div class="help-n">2</div><div><h3>Equipe inicial</h3><p>A faixa no topo mostra quem começa (<b>9 palavras</b>) e o adversário (<b>8</b>). Equivale às luzes da carta-chave física.</p></div></div>
+      <div class="help-item"><div class="help-n">1</div><div><h3>Posicione o celular</h3><p>Entre os <b>dois mestres</b>, com a tela virada para vocês. Os agentes de campo ficam do outro lado da mesa e não devem ver a tela.</p></div></div>
+      <div class="help-item"><div class="help-n">2</div><div><h3>Equipe inicial</h3><p>A faixa no topo mostra quem começa (<b>9 palavras</b>) e o adversário (<b>8</b>). Equivale à bolinha no topo da chave de papel.</p></div></div>
       <div class="help-item"><div class="help-n">3</div><div><h3>Modo SEGURAR</h3><p>O padrão, e o mais seguro na mesa com agentes de campo. Mantenha o dedo no botão da digital para revelar; <b>solte e o mapa some na hora</b>. Ele também se oculta sozinho se a tela apagar ou você trocar de app.</p></div></div>
-      <div class="help-item"><div class="help-n">4</div><div><h3>Modo SEMPRE VISÍVEL</h3><p>O mapa fica aberto sem precisar segurar. A moldura pulsa em vermelho com o selo <b>MAPA EXPOSTO</b> para lembrar do risco, e um toque no botão vermelho <b>oculta na hora</b> e volta ao modo segurar. Ideal para as variantes de 2 e 3 jogadores.</p></div></div>
-      <div class="help-item"><div class="help-n">5</div><div><h3>Leia a grade</h3><p><span class="tag-red">Vermelho</span>/<span class="tag-blue">azul</span> = agentes de cada equipe · <span class="tag-civ">bege</span> = civil inocente · <span class="tag-kill">caveira</span> = assassino. As letras <b>A–E</b> e os números <b>1–5</b> localizam a palavra tocada; o lado de baixo da grade é o lado dos mestres.</p></div></div>
+      <div class="help-item"><div class="help-n">4</div><div><h3>Modo SEMPRE VISÍVEL</h3><p>O mapa fica aberto sem precisar segurar. A moldura pulsa em vermelho com o selo <b>MAPA EXPOSTO</b>, e um toque no botão vermelho <b>oculta na hora</b> e volta ao modo segurar. Ideal para as variantes de 2 e 3 jogadores.</p></div></div>
+      <div class="help-item"><div class="help-n">5</div><div><h3>Leia a grade</h3><p><span class="tag-red">Vermelho</span>/<span class="tag-blue">azul</span> = palavras de cada equipe · <span class="tag-civ">bege</span> = neutra · <span class="tag-kill">caveira</span> = carta preta. As letras <b>A–E</b> e os números <b>1–5</b> localizam a palavra tocada; o lado de baixo da grade é o lado dos mestres.</p></div></div>
       <div class="help-item"><div class="help-n">6</div><div><h3>Nova partida</h3><p>Só entre jogos. Pede <b>confirmação</b> para não perder a chave atual sem querer. O modo de exibição escolhido é mantido.</p></div></div>
       <div class="help-item"><div class="help-n">7</div><div><h3>Tela ativa, som e memória</h3><p><b>Tela ativa</b> impede o celular de apagar (se o navegador suportar). O som tem botão no topo. A chave e o modo ficam <b>salvos só neste aparelho</b> e sobrevivem a bloqueios e recarregamentos.</p></div></div>
     </div>
@@ -345,11 +396,11 @@ var ICON={
   phone:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>',
   shuffle:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h4l10 10h4"/><path d="M3 17h4l3-3M14 10l3-3h4"/><path d="M18 4l3 3-3 3M18 14l3 3-3 3"/></svg>',
   help:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.8.4-1 .9-1 1.7"/><circle cx="12" cy="17" r=".7" fill="currentColor"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 17.5h5.6"/><path d="M10 20.5h4"/><path d="M12 3a6.2 6.2 0 0 0-3.6 11.3c.5.4.8 1 .8 1.6v.6h5.6v-.6c0-.6.3-1.2.8-1.6A6.2 6.2 0 0 0 12 3z"/></svg>',
   check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12l5 5L20 6"/></svg>',
   x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
   warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4"/><circle cx="12" cy="17" r=".6" fill="currentColor"/></svg>'
 };
-/* ícone por tipo de quadrado — vermelho e azul usam o agente */
 function typeIcon(t){return (t==='red'||t==='blue')?ICON.spy:(ICON[t]||'');}
 
 var state=null, prefs={sound:true,wake:false,mode:'hold'};
@@ -409,7 +460,6 @@ function render(){
   $('sess').textContent='CHAVE #'+state.id;
 }
 
-/* ---------- exibição do mapa ---------- */
 function mapShown(){return prefs.mode==='always'||holding;}
 function syncMap(){
   var shown=mapShown();
@@ -479,7 +529,6 @@ $('dangerBar').addEventListener('click',function(){setMode('hold');});
 $('exNo').addEventListener('click',function(){closeScrim('exposeScrim');});
 $('exYes').addEventListener('click',function(){closeScrim('exposeScrim');setMode('always');});
 
-/* ---------- modais ---------- */
 function openScrim(id){var s=$(id);s.hidden=false;requestAnimationFrame(function(){s.classList.add('open');});var f=s.querySelector('button');if(f)f.focus();}
 function closeScrim(id){var s=$(id);if(s.hidden)return;s.classList.remove('open');setTimeout(function(){s.hidden=true;},220);}
 $('new').addEventListener('click',function(){openScrim('confirmScrim');});
@@ -487,10 +536,12 @@ $('cfNo').addEventListener('click',function(){closeScrim('confirmScrim');});
 $('cfYes').addEventListener('click',function(){closeScrim('confirmScrim');newGame(false);});
 $('help').addEventListener('click',function(){openScrim('helpScrim');});
 $('helpClose').addEventListener('click',function(){closeScrim('helpScrim');});
-['confirmScrim','exposeScrim','helpScrim'].forEach(function(id){$(id).addEventListener('click',function(e){if(e.target===$(id))closeScrim(id);});});
-document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeScrim('confirmScrim');closeScrim('exposeScrim');closeScrim('helpScrim');pressOff();}});
+$('clueBtn').addEventListener('click',function(){openScrim('clueScrim');});
+$('clueClose').addEventListener('click',function(){closeScrim('clueScrim');});
+$('clueOk').addEventListener('click',function(){closeScrim('clueScrim');});
+['confirmScrim','exposeScrim','helpScrim','clueScrim'].forEach(function(id){$(id).addEventListener('click',function(e){if(e.target===$(id))closeScrim(id);});});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){['confirmScrim','exposeScrim','helpScrim','clueScrim'].forEach(closeScrim);pressOff();}});
 
-/* ---------- som ---------- */
 function ac(){if(!audioCtx){var C=window.AudioContext||window.webkitAudioContext;if(!C)return null;audioCtx=new C();}if(audioCtx.state==='suspended')audioCtx.resume();return audioCtx;}
 function tone(freq,dur,type,gain,delay){var ctx=ac();if(!ctx)return;var t0=ctx.currentTime+(delay||0);
   var o=ctx.createOscillator(),g=ctx.createGain();o.type=type||'sine';o.frequency.setValueAtTime(freq,t0);
@@ -506,7 +557,6 @@ function sfx(kind){if(!prefs.sound)return;try{
 function setSound(on){prefs.sound=on;save();var b=$('sound');b.setAttribute('aria-pressed',on?'true':'false');b.classList.toggle('off',!on);b.innerHTML=on?ICON.speakerOn:ICON.speakerOff;b.title=on?'Som ligado':'Som desligado';}
 $('sound').addEventListener('click',function(){setSound(!prefs.sound);if(prefs.sound)sfx('tick');toast(prefs.sound?'Som ligado':'Som desligado');});
 
-/* ---------- tela ativa ---------- */
 function wakeSupported(){return 'wakeLock' in navigator;}
 async function applyWake(){
   var b=$('wake');
@@ -521,12 +571,45 @@ $('wake').addEventListener('click',async function(){
 });
 document.addEventListener('visibilitychange',async function(){if(!document.hidden&&prefs.wake&&wakeSupported()){try{wakeLock=await navigator.wakeLock.request('screen');}catch(e){}}});
 
-/* ---------- util ---------- */
 function buzz(p){try{if(navigator.vibrate)navigator.vibrate(p);}catch(e){}}
 function toast(msg){var t=$('toast');t.textContent=msg;t.hidden=false;requestAnimationFrame(function(){t.classList.add('show');});
   clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show');setTimeout(function(){t.hidden=true;},260);},2100);}
 
-/* ---------- ícones estáticos ---------- */
+var RULES=[
+ ['REGRA 01','Uma palavra só','Nada de dicas extras, caretas ou "isso é meio forçado…". Se precisar, você pode <b>soletrar</b> a pista — e deve soletrar se alguém pedir.'],
+ ['REGRA 02','O número não é pista','Ele só diz <b>quantas</b> palavras se ligam ao termo. Cítrico: 8 não vale para LIMÃO e POLVO só porque 8 parece um polvo.'],
+ ['REGRA 03','Nada que esteja na mesa','Com ARRANHA-CÉU descoberto, você não pode dizer <b>arranha</b>, <b>aranha</b> nem <b>céu</b>. Quando a palavra for coberta, ela volta a ser permitida.'],
+ ['REGRA 04','Significado, não forma','Não vale usar letras ou posição. <b>b: 3</b> para BANCO, BANDA e BAIXA é inválido. Mas <b>X: 1</b> para RAIO vale, porque X tem significado.']
+];
+var BAD=[
+ ['b : 3','BANCO · BANDA · BAIXA','Usa a <b>letra inicial</b>, não o significado.'],
+ ['aterra : 1','INGLATERRA','É um <b>pedaço da palavra</b> da mesa, não um conceito.'],
+ ['cítrico : 8','LIMÃO · POLVO','O <b>8 não pode ser pista</b>; só informa a quantidade.'],
+ ['arranha : 1','ARRANHA-CÉU','Com a palavra <b>descoberta</b>, nenhuma parte dela pode ser dita.'],
+ ['sela : 1','CELA','Mesmo som, <b>grafia e sentido diferentes</b>. Só com acordo do grupo.'],
+ ['Apfel : 2','MAÇÃ · BERLIM','Estrangeira que o grupo <b>não usaria</b> numa frase em português.']
+];
+var GOOD=[
+ ['árvore : 2','CASCA · TRONCO','Duas palavras ligadas pelo <b>significado</b>. Formato ideal.'],
+ ['rio : 3','AMAZONAS · LEITO · MARGEM','Três alvos: a equipe pode tentar até <b>4 vezes</b>.'],
+ ['X : 1','RAIO','Letra como <b>significado</b>: o X do raio-X.'],
+ ['oito : 2','BOLA · POLVO','Número como significado: a bola 8 e os oito tentáculos.'],
+ ['dor : 1','DOUTOR','Rima que aponta para um <b>significado</b> reconhecível.'],
+ ['planta : 2','ALGODÃO · HOTEL','Mesma grafia, dois sentidos: vegetal e planta de prédio.']
+];
+function exHTML(list){
+  return list.map(function(e){
+    return '<div class="ex"><div class="ex-w">'+e[0]+'</div><div class="ex-t">→ '+e[1]+'</div><div class="ex-y">'+e[2]+'</div></div>';
+  }).join('');
+}
+$('rules4').innerHTML=RULES.map(function(r){
+  return '<div class="r4"><div class="r4-n">'+r[0]+'</div><div class="r4-t">'+r[1]+'</div><div class="r4-d">'+r[2]+'</div></div>';
+}).join('');
+$('listBad').innerHTML=exHTML(BAD);
+$('listGood').innerHTML=exHTML(GOOD);
+$('colBadH').insertAdjacentHTML('afterbegin',ICON.x);
+$('colGoodH').insertAdjacentHTML('afterbegin',ICON.check);
+
 $('brandMark').innerHTML=ICON.spy;
 $('coverIcon').innerHTML=ICON.eyeoff;
 $('holdIc').innerHTML=ICON.fingerprint;
@@ -536,12 +619,13 @@ $('modeAlways').innerHTML=ICON.eye+'<span>SEMPRE VISÍVEL</span>';
 $('new').innerHTML=ICON.shuffle+'<span>NOVA PARTIDA</span>';
 $('wake').innerHTML=ICON.phone+'<span>TELA ATIVA</span>';
 $('help').innerHTML=ICON.help+'<span>COMO USAR</span>';
+$('clueBtn').innerHTML=ICON.bulb+'<span>REGRA DE DICAS</span>';
 $('cfYes').innerHTML=ICON.shuffle+'<span>GERAR NOVA</span>';
 $('exYes').innerHTML=ICON.eye+'<span>MANTER VISÍVEL</span>';
 $('helpClose').innerHTML=ICON.x;
+$('clueClose').innerHTML=ICON.x;
 $('savedBadge').innerHTML=ICON.check+'<span>salvo neste aparelho</span>';
 
-/* ---------- init ---------- */
 load();
 if(!validState(state))state=generate();
 setSound(prefs.sound);
